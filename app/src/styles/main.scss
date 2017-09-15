@@ -1,0 +1,10 @@
+@import 'reset';
+@import 'variables';
+
+
+
+////COMPONENTS//////
+@import '../components/Home/Home.scss';
+@import './components/App.scss';
+@import '../components/Header/Header.scss';
+@import '../components/Login/Login.scss';

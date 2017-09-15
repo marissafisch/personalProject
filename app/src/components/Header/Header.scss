@@ -1,0 +1,33 @@
+.header-container {
+    background: #1d976c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(left, #1d976c, #93f9b9);
+    background: -moz-linear-gradient(left, #1d976c, #93f9b9);
+    background: -o-linear-gradient(left, #1d976c, #93f9b9);
+    background: linear-gradient(to right, #1d976c, #93f9b9); /* Chrome 10-25, Safari 5.1-6 */
+    color: black;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    display: flex;
+
+}
+
+.header {
+	height: 50px;
+    background: #F0F0F0;
+    border: 1px solid #CCC;
+    width: 960px;
+	justify-content: space-around;
+	
+}
+.header nav{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	min-width: 200px;
+}
+
+.header-image{
+    height: 60px;
+}
+
