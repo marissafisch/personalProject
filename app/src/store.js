@@ -1,7 +1,8 @@
-// import { createStore, applyMiddleware } from 'redux';
-// import user_reducer from './ducks/user_reducer';
+import { createStore, applyMiddleware } from 'redux';
+import reducer from './ducks/reducer';
 // import promiseMiddleware from 'redux-promise-middleware';
 
 
 
-// export default createStore(user_reducer, applyMiddleware(promiseMiddleware()));
+// export default createStore(reducer, applyMiddleware(promiseMiddleware()));
+export default createStore(reducer);

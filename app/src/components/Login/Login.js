@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../../logo.png';
+import logo from '../../images/logo.png';
 import './Login.scss';
 
 require('dotenv').config();
@@ -9,7 +9,7 @@ export default class Login extends Component {
 	render() {
 
 		return (
-            <div className ="body">
+            
 			    <div className="main-container">
 				    <div className="central-login">
 					    <div className="login-container">
@@ -22,7 +22,7 @@ export default class Login extends Component {
 				        </div>
 			        </div>
 			    </div>
-            </div>
+           
 		)
 	}
 }

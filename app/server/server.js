@@ -18,10 +18,19 @@ app.use(session({
 //MIDDLEWARE//
 app.use(passport.initialize());
 app.use(passport.session()); 
+const checkLogin = (req,res, next) => {
+    console.log(req.isAuthenticated())
+    if(!req.isAuthenticated()){
+        next()
+    } else {
+        res.redirect('http://localhost:3000/#/profile')
+    }
+}
 
 //DATABASE//
 massive(process.env.CONNECTIONSTRING).then(db => {
     app.set('db', db)
+    app.get('db').init.seed()
     
 })
 
@@ -50,10 +59,10 @@ passport.use(new Auth0Strategy({
       })
 }));
 
-app.get('/auth', passport.authenticate('auth0'));
+app.get('/auth',checkLogin, passport.authenticate('auth0'));
 
 app.get('/auth/callback', passport.authenticate('auth0', {
-  successRedirect: 'http://localhost:3000/#/home',
+  successRedirect: 'http://localhost:3000/#/profile',
   failureRedirect: 'http://localhost:3000/#/'
 }))
 
