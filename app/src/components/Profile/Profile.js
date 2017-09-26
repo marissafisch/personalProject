@@ -13,14 +13,19 @@ class Profile extends Component {
         return (
             <div id="profile">
                 <div className="profile-container">
-                    <img src={profileImage} alt= "Party Up Profile"/>
                     
-                    <div className="profile-text">
-                        
-
-                
                     
+                    <div className="profile-create-event">
+                        <Link to="/create_event">
+                        <button className="create-event-button"> Create An Event</button>
+                        </Link>
                     </div>
+                        <div className="view-upcoming-events">
+                            <h1>View Upcoming Events</h1>
+                        
+                        
+                        </div>
+
                 
                 
                 

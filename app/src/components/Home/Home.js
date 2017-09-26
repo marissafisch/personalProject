@@ -10,7 +10,7 @@ export default class Home extends Component {
         return (
             <div id="home">
                 <div className='about-partyUp-container'>
-                    <img src={homeImage} alt= "Party Up Home" />
+                    
 
                     <h2><span>
                         Party Up takes the headache out of hosting a party or event.

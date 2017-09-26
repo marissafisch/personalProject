@@ -11,3 +11,51 @@
 @import '../components/Login/Login.scss';
 @import '../components/Features/Features.scss';
 @import '../components/Profile/Profile.scss';
+@import '../components/Create_Event/Create_Event.scss';
+
+#home {
+    .about-partyUp-container{
+        background-image: url('../../src/images/wedding.jpg');
+        background-size: cover;
+        background-origin: center;
+        background-repeat: none;
+    }
+}
+#features {
+    .features-partyUp-container{
+        background-image: url('../../src/images/balloons_pool.jpeg');
+        background-size: cover;
+        background-origin: center;
+        background-repeat: none;
+        opacity: .6;
+    }
+}
+
+#profile {
+    .profile-container{
+        background-image: url('../../src/images/slide.jpg');
+        background-size: cover;
+        background-origin: center;
+        background-repeat: none;
+    }
+}
+
+
+#create_event {
+    .create-event-container{
+        background-image: url('../../src/images/group_circle.jpeg');
+        background-size: cover;
+        background-origin: center;
+        background-repeat: none;
+    }
+}
+
+#view-edit-event {
+    .view-edit-event-container{
+        background-image: url('../../src/images/confetti.jpg');
+        background-size: cover;
+        background-origin: center;
+        background-repeat: none;
+        opacity: .6;
+    }
+}

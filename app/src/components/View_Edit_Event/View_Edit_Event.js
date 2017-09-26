@@ -15,36 +15,36 @@ class View_Edit_Event extends Component {
          updatePartyLocation, updatePartyAddress, updatePartyDecorations, updatePartySupplies, 
          updatePartyFood, sendPartyInvite } = this.props;
         return (
-            <div id="create_event">
+            <div id="view-edit-event">
                 
-            <div className="createEvent_container">
+            <div className="view-edit-event-container">
                <p> Create Event</p>
-           <div className="party_container">
-               <span>Party Name</span><br />
+           <div className="party-container">
+               Party Name
                <input placeholder="partyName" type="text" onChange={ ( e ) => updatePartyName( e.target.value ) } />
         
-               <span>Party Description</span><br/>
+               Party Description
                <input placeholder="partyDescription" type="text" onChange={ ( e ) => updatePartyDescription( e.target.value ) } />  
 
-                <span>Date</span><br/>
+                Date
                <input placeholder="partyDate" type="text" onChange={ ( e ) => updatePartyDate( e.target.value ) } />  
 
-                <span>Location</span><br/>
+                Location
                <input placeholder="partyLocation" type="text" onChange={ ( e ) => updatePartyLocation( e.target.value ) } />  
 
-                <span>Address</span><br/>
+                Address
                <input placeholder="partyAddress" type="text" onChange={ ( e ) => updatePartyAddress( e.target.value ) } />  
 
-               <span>Decorations</span><br/>
+               Decorations
                <input placeholder="partyDecorations" type="text" onChange={ ( e ) => updatePartyDecorations( e.target.value ) } /> 
 
-               <span>Supplies</span><br/>
+               Supplies
                <input placeholder="partySupplies" type="text" onChange={ ( e ) => updatePartySupplies( e.target.value ) } /> 
 
-               <span>Food</span><br/>
+               Food
                <input placeholder="partyFood" type="text" onChange={ ( e ) => updatePartyFood( e.target.value ) } /> 
 
-               <span>Invite By Email</span><br/>
+               Invite By Email
                <input placeholder="partyInvite" type="text" onChange={ ( e ) => sendPartyInvite( e.target.value ) } /> 
 
                 

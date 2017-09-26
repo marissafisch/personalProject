@@ -22,33 +22,35 @@ class Header extends Component {
 					
 					
 						<nav>
-							<Link to="/"><img className='header-image' src={logo} alt="Logo" /></Link>
-					    </nav>
-                        <ul className="nav-bar-left">
-                            <li>
-            				<Link
-              				className="Home-Link"
-              				to="/"
-              				>	
-              				Home
-            				</Link>
-          					</li>
-          					<li>
-            				<Link
-              				className="Features-Link"
-              				to="/features"
-        					>
-              				Features
-            				</Link>
-          					</li>
-          					<li>
-            				<a href= 'http://localhost:3030/auth'><h4>Profile</h4></a>
-							</li>
-                        </ul>
+							
+					    
+							<ul className="nav-bar-left">
+								<li><Link to="/"><img className='header-image' src={logo} alt="Logo" /></Link></li>
+								<li>
+								<Link
+								className="Home-Link"
+								to="/"
+								>	
+								Home
+								</Link>
+								</li>
+								<li>
+								<Link
+								className="Features-Link"
+								to="/features"
+								>
+								Features
+								</Link>
+								</li>
+								<li>
+								<a href= 'http://localhost:3030/auth'><h4>Profile</h4></a>
+								</li>
+							</ul>
 
-                        <div className="nav-bar-right">
-							<a href='/api/auth/logout'><h4>Logout</h4></a>
-						</div>
+							<div className="nav-bar-right">
+								<a href='/api/auth/logout'><h4>Logout</h4></a>
+							</div>
+						</nav>
 					
 				</div >
 			</div >

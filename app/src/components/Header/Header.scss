@@ -12,20 +12,29 @@ background: linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 
 
 }
 
-.header {
-	height: 50px;
+#header {
+	height: 80px;
     background: #F0F0F0;
     border: 1px solid #CCC;
     width: 100%;
     display: flex;
-	justify-content: space-around;
+    justify-content: space-around;
+    
+    a {
+        text-decoration: none;
+        color: black;
+        &:hover {
+            color: white;
+        }
+    }
 	
 }
-.header nav{
+#header nav{
 	display:flex;
 	justify-content: space-between;
 	align-items: center;
-	min-width: 200px;
+    width: 100vw;
+    // border: 1px solid red;
 }
 
 .header-image{
@@ -44,11 +53,16 @@ background: linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 
             color: black;
         }
     }
+    border: 1px solid red;
+    
 }
 
 
 .nav-bar-right{
     display: flex;
     justify-content: space-around;
-    align-items: center
+    align-items: center;
+    border: 1px solid red;
+    margin-right: 30px;
+    
 }

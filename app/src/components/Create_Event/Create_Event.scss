@@ -1,0 +1,71 @@
+@import './../../styles/variables';
+
+.create-event-container{
+    display: flex;
+    height: 100vh;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-family: $sans;
+
+    p {
+        margin-bottom: 20px;
+        font-size: 130%;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+    }
+}
+
+.party-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    border: 1px solid red;
+
+    line-height: 30px;
+
+    div {
+        height: 40px;
+    }
+
+    input {
+        width: 200px;
+        height: 25px;
+        padding-left: 7px;
+        margin-left: 2px;
+
+        border: {
+            top: none;
+            left: none;
+            right: none;
+            bottom: 1px solid black;
+        }
+        background-color: rgba(255, 255, 255, 0.1);
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .textAreaDiv {
+        height: 80px;
+        border: 1px solid blue;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        textarea {
+            width: 400px;
+            height: 50px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

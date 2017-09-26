@@ -183,21 +183,30 @@ export function updatePartyGuests(partyGuests) {
 export function getAllParties(partyId) {
     return {
         type: GET_ALL_PARTIES,
-        payload: partyId
+        payload: axios.get('/getAllParties')
+        .then(response => {
+            return response
+        })
     }
 }
 
 export function getAllTasks(taskId) {
     return {
         type: GET_ALL_TASKS,
-        payload: taskId
+        payload: axios.get('/getAllTasks')
+        .then(response => {
+            return response
+        })
     }
 }
 
 export function getAllGuests(partyId) {
     return {
         type: GET_ALL_GUESTS,
-        payload: partyId
+        payload: axios.get('/getAllGuests')
+        .then(response => {
+            return response
+        })
     }
 }
 
@@ -211,14 +220,20 @@ export function updatePartyTask(partyTask) {
 export function sendPartyInvite(partyInvite) {
     return {
         type: SEND_PARTY_INVITE,
-        payload: partyInvite
+        payload: axios.post('/sendPartyInvite')
+        .then(response => {
+            return response
+        })
     }
 }
 
 export function acceptPartyInvite(partyInvite) {
     return {
         type: ACCEPT_PARTY_INVITE,
-        payload: partyInvite
+        payload: axios.put('/acceptPartyInvite')
+        .then(response => {
+            return response
+        })
     }
 }
 

@@ -17,37 +17,58 @@ class Create_Event extends Component {
         return (
             <div id="create_event">
                 
-            <div className="createEvent_container">
-               <p> Create Event</p>
-           <div className="party_container">
-               <span>Party Name</span><br />
-               <input placeholder="partyName" type="text" onChange={ ( e ) => updatePartyName( e.target.value ) } />
-        
-               <span>Party Description</span><br/>
-               <input placeholder="partyDescription" type="text" onChange={ ( e ) => updatePartyDescription( e.target.value ) } />  
+            <div className="create-event-container">
+                <p>Create Event</p>
+            <div className="party-container">
+               
+                <div>
+                    Party Name:
+                    <input placeholder="Party Name" type="text" onChange={ ( e ) => updatePartyName( e.target.value ) } />
+                </div>
 
-                <span>Date</span><br/>
-               <input placeholder="partyDate" type="text" onChange={ ( e ) => updatePartyDate( e.target.value ) } />  
-
-                <span>Location</span><br/>
-               <input placeholder="partyLocation" type="text" onChange={ ( e ) => updatePartyLocation( e.target.value ) } />  
-
-                <span>Address</span><br/>
-               <input placeholder="partyAddress" type="text" onChange={ ( e ) => updatePartyAddress( e.target.value ) } />  
-
-               <span>Decorations</span><br/>
-               <input placeholder="partyDecorations" type="text" onChange={ ( e ) => updatePartyDecorations( e.target.value ) } /> 
-
-               <span>Supplies</span><br/>
-               <input placeholder="partySupplies" type="text" onChange={ ( e ) => updatePartySupplies( e.target.value ) } /> 
-
-               <span>Food</span><br/>
-               <input placeholder="partyFood" type="text" onChange={ ( e ) => updatePartyFood( e.target.value ) } /> 
-
-               <span>Invite By Email</span><br/>
-               <input placeholder="partyInvite" type="text" onChange={ ( e ) => sendPartyInvite( e.target.value ) } /> 
-
+                <div>
+                    Date:
+                    <input placeholder="mm/dd/yy" type="text" onChange={ ( e ) => updatePartyDate( e.target.value ) } />  
+                </div>
                 
+                <div>
+                    Location:
+                    <input placeholder="partyLocation" type="text" onChange={ ( e ) => updatePartyLocation( e.target.value ) } />  
+                </div>
+                
+                <div>
+                    Address:
+                    <input placeholder="partyAddress" type="text" onChange={ ( e ) => updatePartyAddress( e.target.value ) } />  
+                </div>
+                
+                <div>
+                    Decorations:
+                    <input placeholder="partyDecorations" type="text" onChange={ ( e ) => updatePartyDecorations( e.target.value ) } /> 
+                </div>
+                
+                <div>
+                    Supplies:
+                    <input placeholder="partySupplies" type="text" onChange={ ( e ) => updatePartySupplies( e.target.value ) } /> 
+                </div>
+                
+                <div>
+                    Food:
+                    <input placeholder="partyFood" type="text" onChange={ ( e ) => updatePartyFood( e.target.value ) } /> 
+                </div>
+                
+                <div>
+                    Invite By Email:
+                    <input placeholder="partyInvite" type="text" onChange={ ( e ) => sendPartyInvite( e.target.value ) } /> 
+                </div>
+
+
+                <div className="textAreaDiv">
+                    Party Description:
+                    <textarea placeholder="partyDescription" type="text" onChange={ ( e ) => updatePartyDescription( e.target.value ) } />  
+                </div>
+
+
+                <button className="submit-party-button" onClick={()=>this.props.sendPartyInvite()}> Submit</button>
 
             </div>
             </div>
