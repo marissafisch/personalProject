@@ -1,5 +1,5 @@
 INSERT INTO tasks
-(supplies, decorations, food)
+(decorations, supplies, food)
 VALUES
 ( $1, $2, $3)
 RETURNING *;

@@ -8,28 +8,24 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS party (
     id SERIAL PRIMARY KEY,
     party_name VARCHAR(180),
-    party_description VARCHAR(1000),
     party_date TEXT,
     party_location TEXT,
-    party_address TEXT
+    party_address TEXT,
+    party_description VARCHAR(1000),
+    host = INT,
+    guests = INT[]
 );
 
 CREATE TABLE IF NOT EXISTS tasks (
     id SERIAL PRIMARY KEY,
-    supplies TEXT,
     decorations TEXT,
+    supplies TEXT,
     food TEXT
 );
 
 CREATE TABLE IF NOT EXISTS invites (
-    user_Id REFERENCES users(id),
-    party_Id REFERENCES party(id),
+    user_Id integer REFERENCES users(id),
+    party_Id integer REFERENCES party(id),
+    email_list TEXT
 );
 
-CREATE TABLE IF NOT EXISTS user_role(
-    id SERIAL PRIMARY KEY INTEGER,
-    user_Id REFERENCES users(id),
-    party_Id REFERENCES party(id),
-    admin TEXT,
-    guest TEXT
-);

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import logo from '../../images/logo.png';
-import './Login.scss';
+import './Send_Invite.scss';
 
 require('dotenv').config();
 
-export default class Login extends Component {
+export default class Send_Invite extends Component {
 
 	render() {
 

@@ -1,3 +1,5 @@
+@import './../../styles/variables';
+
 .header-container {
     background: #1D976C;  /* fallback for old browsers */
 background: -webkit-linear-gradient(bottom, #93F9B9, #1D976C);
@@ -53,7 +55,7 @@ background: linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 
             color: black;
         }
     }
-    border: 1px solid red;
+    // border: 1px solid red;
     
 }
 
@@ -62,7 +64,7 @@ background: linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid red;
+    // border: 1px solid red;
     margin-right: 30px;
     
 }

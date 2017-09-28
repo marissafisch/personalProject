@@ -16,6 +16,7 @@ app.use(session({
 }))
 
 //MIDDLEWARE//
+app.use(bodyParser.json())
 app.use(passport.initialize());
 app.use(passport.session()); 
 const checkLogin = (req,res, next) => {
@@ -30,7 +31,7 @@ const checkLogin = (req,res, next) => {
 //DATABASE//
 massive(process.env.CONNECTIONSTRING).then(db => {
     app.set('db', db)
-    app.get('db').init.seed()
+    // app.get('db').init.seed()
     
 })
 
@@ -90,6 +91,25 @@ app.post('/api/auth/logout', (req, res) => {
      //302 is the status code for redirect
 });
 
+//ENDPOINTS//
+
+app.post('/api/createParty', (req, res) => {
+    const {partyName, partyDate, partyLocation, partyAddress, partyDescription,
+    partyDecorations, partySupplies, partyFood, listOfEmails} = req.body
+    
+    app.get('db').createParty([partyName, partyDate, partyLocation, partyAddress, partyDescription, req.user.id]).then(party => {
+       
+    })
+    app.get('db').createTask([partyDecorations, partySupplies, partyFood]).then(tasks => {
+        return res.redirect('http://localhost:3000/#/review_event');
+
+    })
+    
+})
+
+// app.get('db').sendInvite([listOfEmails, req.user.id, party[0].id]).then(invites => {
+        //     res.status(200).send('added');
+        // })
 
 let PORT = 3030;
 app.listen(PORT, () => {

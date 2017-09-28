@@ -36,6 +36,7 @@ const DELETE_PARTY_TASK = 'DELETE_PARTY_TASK';
 const SEND_PARTY_INVITE = 'SEND_PARTY_INVITE';
 const ACCEPT_PARTY_INVITE = 'ACCEPT_PARTY_INVITE';
 const DELETE_PARTY_INVITE = 'DELETE_PARTY_INVITE';
+const LIST_OF_EMAILS = 'LIST_OF_EMAILS';
 //AUTH COMPONENTS//
 const UPDATE_LOGIN_STATUS = 'UPDATE_LOGIN_STATUS';
 const LOGOUT = 'LOGOUT';
@@ -61,10 +62,8 @@ function reducer(state = initialState, action) {
             return Object.assign({}, state, { partyFood: action.payload })
         case UPDATE_PARTY_GUESTS:
             return Object.assign({}, state, { partyGuests: action.payload })
-        case UPDATE_PARTY_NAME:
-            return Object.assign({}, state, { partyFood: action.payload })
-        case GET_ALL_PARTIES:
-            return Object.assign({}, state, { partyId: action.payload })
+        case GET_ALL_PARTIES + "_FULFILLED":
+            return Object.assign({}, state, { partyId: action.payload.data })
         case GET_ALL_TASKS:
             return Object.assign({}, state, { taskId: action.payload })
         case GET_ALL_GUESTS:
@@ -76,8 +75,8 @@ function reducer(state = initialState, action) {
                 partyTask:
                 state.partyTask.splice(state.partyTask.indexOf(action.payload, 1))
             });
-        case SEND_PARTY_INVITE:
-            return Object.assign({}, state, { partyInvite: action.payload })
+        // case SEND_PARTY_INVITE:
+        //     return Object.assign({}, state, { partyInvite: action.payload })
         case ACCEPT_PARTY_INVITE:
             return Object.assign({}, state, { partyInvite: action.payload })
         case DELETE_PARTY_INVITE:
@@ -93,6 +92,8 @@ function reducer(state = initialState, action) {
             return Object.assign({}, initialState)
         default:
             return state
+        case LIST_OF_EMAILS:
+            return Object.assign({}, state, { listOfEmails: action.payload })
     }
 }
 
@@ -217,15 +218,21 @@ export function updatePartyTask(partyTask) {
     }
 }
 
-export function sendPartyInvite(partyInvite) {
+export function updateListOfEmails(email){
     return {
-        type: SEND_PARTY_INVITE,
-        payload: axios.post('/sendPartyInvite')
-        .then(response => {
-            return response
-        })
+        type: LIST_OF_EMAILS,
+        payload: email
     }
 }
+
+// export function sendPartyInvite(partyInviteObj) {
+//     console.log("partyInvite: ", partyInviteObj)
+//     axios.post('/sendInvite', partyInviteObj)
+//     .then(response =>{
+//         console.log(response)
+//     })
+    
+// }
 
 export function acceptPartyInvite(partyInvite) {
     return {

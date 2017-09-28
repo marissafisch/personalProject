@@ -8,10 +8,11 @@
 @import '../components/Home/Home.scss';
 @import './components/App.scss';
 @import '../components/Header/Header.scss';
-@import '../components/Login/Login.scss';
 @import '../components/Features/Features.scss';
 @import '../components/Profile/Profile.scss';
 @import '../components/Create_Event/Create_Event.scss';
+@import '../components/Review_Event/Review_Event.scss';
+@import '../components/Send_Invite/Send_Invite.scss';
 
 #home {
     .about-partyUp-container{
@@ -50,12 +51,20 @@
     }
 }
 
-#view-edit-event {
-    .view-edit-event-container{
-        background-image: url('../../src/images/confetti.jpg');
+#review-event {
+    .review-event-container{
+        background-image: url('../../src/images/group_circle.jpeg');
         background-size: cover;
         background-origin: center;
         background-repeat: none;
-        opacity: .6;
+        
+    }
+
+    .edit-event-container{
+        background-image: url('../../src/images/group_circle.jpeg');
+        background-size: cover;
+        background-origin: center;
+        background-repeat: none;
+        
     }
 }

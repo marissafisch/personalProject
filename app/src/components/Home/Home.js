@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Home.scss';
 import { Link } from 'react-router-dom';
-import homeImage from '../../images/wedding.jpg';
+
 
 export default class Home extends Component {
 

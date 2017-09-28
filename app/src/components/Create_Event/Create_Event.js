@@ -3,17 +3,40 @@ import './Create_Event.scss';
 import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import { updatePartyName, updatePartyDescription, updatePartyDate, 
          updatePartyLocation, updatePartyAddress, updatePartyDecorations,
-         updatePartySupplies, updatePartyFood, updatePartyGuests, sendPartyInvite
+         updatePartySupplies, updatePartyFood, updatePartyGuests, updateListOfEmails
          } from '../../ducks/reducer';
 
 class Create_Event extends Component {
 
+    sendPartyInvite(partyInviteObj) {
+        console.log("partyInvite: ", partyInviteObj)
+        axios.post('/api/createParty', partyInviteObj).then(response => {
+            console.log(response);
+        })
+
+    }
+
 	render() {
         const { updatePartyName, updatePartyDescription, updatePartyDate, 
          updatePartyLocation, updatePartyAddress, updatePartyDecorations, updatePartySupplies, 
-         updatePartyFood, sendPartyInvite } = this.props;
+         updatePartyFood, updateListOfEmails } = this.props;
+
+         let partyDetails = {
+            partyName: this.props.partyName,
+            partyDate: this.props.partyDate,
+            partyLocation: this.props.partyLocation,
+            partyAddress: this.props.partyAddress,
+            partyDescription: this.props.partyDescription,
+            partyDecorations: this.props.partyDecorations,
+            partySupplies: this.props.partySupplies,
+            partyFood: this.props.partyFood,
+            listOfEmails: this.props.listOfEmails
+    }
+        console.log(partyDetails)
+         
         return (
             <div id="create_event">
                 
@@ -28,48 +51,47 @@ class Create_Event extends Component {
 
                 <div>
                     Date:
-                    <input placeholder="mm/dd/yy" type="text" onChange={ ( e ) => updatePartyDate( e.target.value ) } />  
+                    <input placeholder="mm/dd/yyyy" type="text" onChange={ ( e ) => updatePartyDate( e.target.value ) } />  
                 </div>
                 
                 <div>
                     Location:
-                    <input placeholder="partyLocation" type="text" onChange={ ( e ) => updatePartyLocation( e.target.value ) } />  
+                    <input placeholder="Party Location" type="text" onChange={ ( e ) => updatePartyLocation( e.target.value ) } />  
                 </div>
                 
                 <div>
                     Address:
-                    <input placeholder="partyAddress" type="text" onChange={ ( e ) => updatePartyAddress( e.target.value ) } />  
+                    <input placeholder="Address" type="text" onChange={ ( e ) => updatePartyAddress( e.target.value ) } />  
                 </div>
                 
-                <div>
-                    Decorations:
-                    <input placeholder="partyDecorations" type="text" onChange={ ( e ) => updatePartyDecorations( e.target.value ) } /> 
-                </div>
-                
-                <div>
-                    Supplies:
-                    <input placeholder="partySupplies" type="text" onChange={ ( e ) => updatePartySupplies( e.target.value ) } /> 
-                </div>
-                
-                <div>
-                    Food:
-                    <input placeholder="partyFood" type="text" onChange={ ( e ) => updatePartyFood( e.target.value ) } /> 
-                </div>
-                
-                <div>
-                    Invite By Email:
-                    <input placeholder="partyInvite" type="text" onChange={ ( e ) => sendPartyInvite( e.target.value ) } /> 
-                </div>
-
-
-                <div className="textAreaDiv">
+                <div className="descriptionAreaDiv">
                     Party Description:
-                    <textarea placeholder="partyDescription" type="text" onChange={ ( e ) => updatePartyDescription( e.target.value ) } />  
+                    <textarea placeholder="Description of Party" type="text" onChange={ ( e ) => updatePartyDescription( e.target.value ) } />  
                 </div>
+                
+                <div className="decorationsAreaDiv">
+                    Decorations:
+                    <textarea placeholder="Seperate By Comma" type="text" onChange={ ( e ) => updatePartyDecorations( e.target.value ) } /> 
+                </div>
+                
+                <div className="suppliesAreaDiv">
+                    Supplies:
+                    <textarea placeholder="Seperate By Comma" type="text" onChange={ ( e ) => updatePartySupplies( e.target.value ) } /> 
+                </div>
+                
+                <div className="foodAreaDiv">
+                    Food:
+                    <textarea placeholder="Seperate By Comma" type="text" onChange={ ( e ) => updatePartyFood( e.target.value ) } /> 
+                </div>
+                
+                {/* <div className="emailAreaDiv">
+                    Invite By Email:
+                    <textarea placeholder="Seperate By Comma" type="text" onChange={ ( e ) => updateListOfEmails( e.target.value ) } /> 
+                </div> */}
 
 
-                <button className="submit-party-button" onClick={()=>this.props.sendPartyInvite()}> Submit</button>
-
+                <Link to="/review_event"><button className="submit-party-button"> Submit</button>
+                </Link>
             </div>
             </div>
             </div>
@@ -79,20 +101,21 @@ class Create_Event extends Component {
 }
 
 function mapStateToProps(state) {
-    const { partyName, partyDescription, partyDate, partyLocation, partyAddress, partyDecorations,
-            partySupplies, partyFood, partyGuests, partyInvite } = state;
+    const { partyName,  partyDate, partyLocation, partyAddress, partyDescription, partyDecorations,
+            partySupplies, partyFood, partyGuests, partyInvite, listOfEmails } = state;
   
     return {
         partyName, 
-        partyDescription, 
         partyDate, 
         partyLocation, 
-        partyAddress, 
+        partyAddress,
+        partyDescription, 
         partyDecorations,
         partySupplies, 
         partyFood, 
         partyGuests,
-        partyInvite
+        partyInvite,
+        listOfEmails
    
    
     
@@ -101,15 +124,15 @@ function mapStateToProps(state) {
 
 let outputActions = {
     updatePartyName, 
-    updatePartyDescription, 
     updatePartyDate, 
     updatePartyLocation,
-    updatePartyAddress, 
+    updatePartyAddress,
+    updatePartyDescription,  
     updatePartyDecorations, 
     updatePartySupplies, 
     updatePartyFood, 
-    updatePartyGuests, 
-    sendPartyInvite
+    updatePartyGuests,
+    updateListOfEmails
 
 }
 
