@@ -6,23 +6,16 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { updatePartyName, updatePartyDescription, updatePartyDate, 
          updatePartyLocation, updatePartyAddress, updatePartyDecorations,
-         updatePartySupplies, updatePartyFood, updatePartyGuests, updateListOfEmails
+         updatePartySupplies, updatePartyFood, updatePartyGuests,
          } from '../../ducks/reducer';
 
 class Create_Event extends Component {
 
-    sendPartyInvite(partyInviteObj) {
-        console.log("partyInvite: ", partyInviteObj)
-        axios.post('/api/createParty', partyInviteObj).then(response => {
-            console.log(response);
-        })
-
-    }
 
 	render() {
         const { updatePartyName, updatePartyDescription, updatePartyDate, 
          updatePartyLocation, updatePartyAddress, updatePartyDecorations, updatePartySupplies, 
-         updatePartyFood, updateListOfEmails } = this.props;
+         updatePartyFood } = this.props;
 
          let partyDetails = {
             partyName: this.props.partyName,
@@ -33,7 +26,7 @@ class Create_Event extends Component {
             partyDecorations: this.props.partyDecorations,
             partySupplies: this.props.partySupplies,
             partyFood: this.props.partyFood,
-            listOfEmails: this.props.listOfEmails
+            
     }
         console.log(partyDetails)
          
@@ -83,11 +76,6 @@ class Create_Event extends Component {
                     Food:
                     <textarea placeholder="Seperate By Comma" type="text" onChange={ ( e ) => updatePartyFood( e.target.value ) } /> 
                 </div>
-                
-                {/* <div className="emailAreaDiv">
-                    Invite By Email:
-                    <textarea placeholder="Seperate By Comma" type="text" onChange={ ( e ) => updateListOfEmails( e.target.value ) } /> 
-                </div> */}
 
 
                 <Link to="/review_event"><button className="submit-party-button"> Submit</button>
@@ -102,7 +90,7 @@ class Create_Event extends Component {
 
 function mapStateToProps(state) {
     const { partyName,  partyDate, partyLocation, partyAddress, partyDescription, partyDecorations,
-            partySupplies, partyFood, partyGuests, partyInvite, listOfEmails } = state;
+            partySupplies, partyFood, partyGuests, partyInvite } = state;
   
     return {
         partyName, 
@@ -115,7 +103,7 @@ function mapStateToProps(state) {
         partyFood, 
         partyGuests,
         partyInvite,
-        listOfEmails
+        
    
    
     
@@ -132,7 +120,6 @@ let outputActions = {
     updatePartySupplies, 
     updatePartyFood, 
     updatePartyGuests,
-    updateListOfEmails
 
 }
 

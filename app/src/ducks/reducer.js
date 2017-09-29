@@ -15,7 +15,8 @@ const initialState = {
     userId: '',
     password: '',
     loginStatus: false,
-
+    partyId: '',
+    partyList: []
 }
 
 const UPDATE_PARTY_NAME = 'UPDATE_PARTY_NAME';
@@ -31,15 +32,15 @@ const UPDATE_PARTY_INVITE = 'UPDATE_PARTY_INVITE';
 const GET_ALL_PARTIES = 'GET_ALL_PARTIES';
 const GET_ALL_TASKS = 'GET_ALL_TASKS';
 const GET_ALL_GUESTS = 'GET_ALL_GUESTS';
-const UPDATE_PARTY_TASK = 'UPDATE_PARTY_TASK';
 const DELETE_PARTY_TASK = 'DELETE_PARTY_TASK';
-const SEND_PARTY_INVITE = 'SEND_PARTY_INVITE';
 const ACCEPT_PARTY_INVITE = 'ACCEPT_PARTY_INVITE';
 const DELETE_PARTY_INVITE = 'DELETE_PARTY_INVITE';
-const LIST_OF_EMAILS = 'LIST_OF_EMAILS';
+const SET_PARTY_ID = 'SET_PARTY_ID';
+
 //AUTH COMPONENTS//
 const UPDATE_LOGIN_STATUS = 'UPDATE_LOGIN_STATUS';
 const LOGOUT = 'LOGOUT';
+const GET_USER = 'GET_USER';
 
 
 function reducer(state = initialState, action) {
@@ -63,20 +64,17 @@ function reducer(state = initialState, action) {
         case UPDATE_PARTY_GUESTS:
             return Object.assign({}, state, { partyGuests: action.payload })
         case GET_ALL_PARTIES + "_FULFILLED":
-            return Object.assign({}, state, { partyId: action.payload.data })
-        case GET_ALL_TASKS:
+            console.log(action.payload)
+            return Object.assign({}, state, { partyList: action.payload })
+        case GET_ALL_TASKS + "_FULFILLED":
             return Object.assign({}, state, { taskId: action.payload })
-        case GET_ALL_GUESTS:
+        case GET_ALL_GUESTS + "_FULFILLED":
             return Object.assign({}, state, { userId: action.payload })
-        case UPDATE_PARTY_TASK:
-            return Object.assign({}, state, { partyTask: action.payload })
         case DELETE_PARTY_TASK:
             return Object.assign({}, state, {
                 partyTask:
                 state.partyTask.splice(state.partyTask.indexOf(action.payload, 1))
             });
-        // case SEND_PARTY_INVITE:
-        //     return Object.assign({}, state, { partyInvite: action.payload })
         case ACCEPT_PARTY_INVITE:
             return Object.assign({}, state, { partyInvite: action.payload })
         case DELETE_PARTY_INVITE:
@@ -90,10 +88,23 @@ function reducer(state = initialState, action) {
             return Object.assign({}, state, { login: action.payload })
         case LOGOUT:
             return Object.assign({}, initialState)
+        case GET_USER + "_FULFILLED" :
+            return Object.assign({}, state, { user: action.payload })
+        case SET_PARTY_ID:
+            return Object.assign({}, state, {partyId: action.payload})
         default:
             return state
-        case LIST_OF_EMAILS:
-            return Object.assign({}, state, { listOfEmails: action.payload })
+    }
+}
+
+export function getUser(){
+    var userInfo = axios.get('http://localhost:3030/auth/me').then(response => {
+        console.log(response)
+        return response.data
+        })
+    return {
+        type: GET_USER,
+        payload: userInfo
     }
 }
 
@@ -180,13 +191,12 @@ export function updatePartyGuests(partyGuests) {
 }
 
 
-
-export function getAllParties(partyId) {
+export function getAllParties() {
     return {
         type: GET_ALL_PARTIES,
-        payload: axios.get('/getAllParties')
-        .then(response => {
-            return response
+        payload: axios.get('http://localhost:3030/api/getAllParties').then(response => {
+            console.log(response)
+            return response.data
         })
     }
 }
@@ -194,8 +204,7 @@ export function getAllParties(partyId) {
 export function getAllTasks(taskId) {
     return {
         type: GET_ALL_TASKS,
-        payload: axios.get('/getAllTasks')
-        .then(response => {
+        payload: axios.get('/getAllTasks').then(response => {
             return response
         })
     }
@@ -204,35 +213,11 @@ export function getAllTasks(taskId) {
 export function getAllGuests(partyId) {
     return {
         type: GET_ALL_GUESTS,
-        payload: axios.get('/getAllGuests')
-        .then(response => {
+        payload: axios.get('/getAllGuests').then(response => {
             return response
         })
     }
 }
-
-export function updatePartyTask(partyTask) {
-    return {
-        type: UPDATE_PARTY_TASK,
-        payload: partyTask
-    }
-}
-
-export function updateListOfEmails(email){
-    return {
-        type: LIST_OF_EMAILS,
-        payload: email
-    }
-}
-
-// export function sendPartyInvite(partyInviteObj) {
-//     console.log("partyInvite: ", partyInviteObj)
-//     axios.post('/sendInvite', partyInviteObj)
-//     .then(response =>{
-//         console.log(response)
-//     })
-    
-// }
 
 export function acceptPartyInvite(partyInvite) {
     return {
@@ -241,6 +226,13 @@ export function acceptPartyInvite(partyInvite) {
         .then(response => {
             return response
         })
+    }
+}
+
+export function setPartyId(id) {
+    return {
+        type: SET_PARTY_ID,
+        payload: id
     }
 }
 

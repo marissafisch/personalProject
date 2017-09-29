@@ -4,11 +4,23 @@ import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import profileImage from '../../images/slide.jpg';
-import { getAllParties, getAllTasks, getAllGuests } from '../../ducks/reducer';
+import { getAllParties, getAllTasks, getAllGuests, getUser } from '../../ducks/reducer';
 
 class Profile extends Component {
 
+    componentDidMount(){
+        this.props.getUser()
+        this.props.getAllParties()
+    }
+
 	render() {
+        let partyListToDisplay = this.props.partyList.map((e, i) => {
+            return(
+                <div>
+                    {e.party_name}
+                </div>
+            )
+        })
         const { getAllParties, getAllTasks, getAllGuests } = this.props;
         return (
             <div id="profile">
@@ -22,8 +34,11 @@ class Profile extends Component {
                     </div>
                         <div className="view-upcoming-events">
                             <h1>View Upcoming Events</h1>
-                        
-                        
+                        </div>
+
+                        <div className="party-display-container">
+                        {partyListToDisplay}
+
                         </div>
 
                 
@@ -42,10 +57,10 @@ class Profile extends Component {
 }
 
 function mapStateToProps(state) {
-    const { partyName, partyGuests} = state;
+    const { partyList, partyGuests} = state;
   
     return {
-    partyName,
+    partyList,
     partyGuests
     
   };
@@ -53,7 +68,8 @@ function mapStateToProps(state) {
 let outputActions = {
     getAllParties,  
     getAllGuests,
-    getAllTasks
+    getAllTasks,
+    getUser
 
 }
 

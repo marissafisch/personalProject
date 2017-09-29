@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { updatePartyName, updatePartyDescription, updatePartyDate, 
          updatePartyLocation, updatePartyAddress, updatePartyDecorations,
-         updatePartySupplies, updatePartyFood, updatePartyGuests
+         updatePartySupplies, updatePartyFood, updatePartyGuests, setPartyId
          } from '../../ducks/reducer';
 
 class Review_Event extends Component {
@@ -15,13 +15,33 @@ class Review_Event extends Component {
         super();
         
         this.state = {
-            edit: false
+            edit: false,
+            partyDetails: {}
         }
     }
 
-    hostCreateParty(partyInviteObj) {
-        axios.post('/api/createParty', partyInviteObj).then(response => {
-            console.log(response);
+    componentDidMount(){
+        let partyDetails = {
+            partyName: this.props.partyName,
+            partyDate: this.props.partyDate,
+            partyLocation: this.props.partyLocation,
+            partyAddress: this.props.partyAddress,
+            partyDescription: this.props.partyDescription,
+            partyDecorations: this.props.partyDecorations,
+            partySupplies: this.props.partySupplies,
+            partyFood: this.props.partyFood,
+            
+    }
+        this.setState({partyDetails:partyDetails})
+
+        
+    }
+
+    hostCreateParty(partyDetails) {
+        console.log(this.props)
+       return axios.post('/api/createParty?id=' + this.props.user.id, partyDetails).then(response => {
+           console.log("partyid response: ", response);
+            this.props.setPartyId(response.data.id);
         })
 
     }
@@ -104,7 +124,8 @@ class Review_Event extends Component {
                     
                     }}> Edit</button>
                 
-            <Link to="/send_invite"><button className="confirm-party-button"> Confirm</button>
+              <Link to="/send_invite">
+            <button className="confirm-party-button" onClick={() =>this.hostCreateParty (this.state.partyDetails)}  > Confirm</button>
             </Link>
             </div>
                 
@@ -181,7 +202,7 @@ class Review_Event extends Component {
 
 function mapStateToProps(state) {
     const { partyName, partyDescription, partyDate, partyLocation, partyAddress, partyDecorations,
-            partySupplies, partyFood, partyGuests, partyInvite } = state;
+            partySupplies, partyFood, partyGuests, partyInvite, user } = state;
   
     return {
         partyName, 
@@ -193,7 +214,8 @@ function mapStateToProps(state) {
         partySupplies, 
         partyFood, 
         partyGuests,
-        partyInvite
+        partyInvite,
+        user
    
    
     
@@ -209,8 +231,8 @@ let outputActions = {
     updatePartyDecorations, 
     updatePartySupplies, 
     updatePartyFood, 
-    updatePartyGuests
-
+    updatePartyGuests,
+    setPartyId
 }
 
 export default connect (mapStateToProps, outputActions) (Review_Event); 
