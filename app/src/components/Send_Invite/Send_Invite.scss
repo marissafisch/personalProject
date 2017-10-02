@@ -8,6 +8,12 @@
     flex-direction: column;
     font-family: $sans;
 
+    a {
+      text-decoration: none;
+    }
+    
+    
+
     p {
         margin-bottom: 30px;
         font-size: 130%;
@@ -18,13 +24,13 @@
     }
       div {
         padding: 5px;
+        
       }
 
-      textarea { 
-      height: 10%;
+      input { 
+      height: 5%;
       width: 20%;
       background: white;
-      overflow: scroll;
       margin-top: 1%;
       display: flex;
       justify-content: center;
@@ -36,10 +42,11 @@
       height: 30px;
       width: 10vw;
       border-radius: 5px;
-      font-size: 18px;
+      font-size: 17px;
+      text-decoration: none;
       display: flex;
       margin-top: 10px;
-      margin-left: 150px;
+      margin-left: 140px;
       justify-content: center;
       background-image: radial-gradient(circle at 50% -46%, #1d976c, #93f9b9);
       transform: translateX(-50%);
@@ -47,18 +54,29 @@
         color: white;
 
     }
+    
   }
 
+
+
   .email-display{
-    border: 1px solid red;
+    // border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    background-image: white;
 
     .span {
-      border: 1px solid red;
+    
     }
 
     div{
       color: black;
+      background-color: rgb(255, 255, 255, .1)
     }
+  }
+
+  .submit-invite {
+    text-decoration: none;
   }
 
 }

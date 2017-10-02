@@ -16,7 +16,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/profile' component={Profile} />
@@ -25,6 +24,7 @@ class App extends Component {
           <Route path='/review_event' component={Review_Event} />
           <Route path='/send_invite' component={Send_Invite} />
         </Switch>
+        <Header />
 
       </div>
     );

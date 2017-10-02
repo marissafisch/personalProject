@@ -108,10 +108,8 @@ app.post('/api/createParty', (req, res) => {
     const { partyName, partyDate, partyLocation, partyAddress, partyDescription,
         partyDecorations, partySupplies, partyFood } = req.body
 
-    app.get('db').createParty([partyName, partyDate, partyLocation, partyAddress, partyDescription, req.query.id]).then(party => {
-        console.log("create party", party)
+    app.get('db').createParty([partyName, partyDate, partyLocation, partyAddress, partyDescription, req.user.id]).then(party => {
         req.session.party = party
-        console.log("req.session.party", req.session.party)
     })
     app.get('db').createTask([partyDecorations, partySupplies, partyFood]).then(tasks => {
         return res.redirect('http://localhost:3000/#/review_event');
@@ -126,35 +124,20 @@ app.get('/api/getAllParties', (req, res) => {
     })
 })
 
+//Get All Tasks//
+app.get('/api/getAllTasks', (req, res) => {
+    app.get('db').getAllTasks().then(tasks => {
+        res.status(200).send(tasks);
+    })
+})
+
+//Send Invite//
 app.post('/api/sendInvite', (req, res) => {
     console.log('send invite: ', req.body)
     app.get('db').addEmailList([req.body.email_list, req.session.party[0].id]).then(response => {
         res.status(200).send('email list added')
     })
-    // console.log(req.user);
-    // console.log('req.body', req.body)
-    // const { email_list, user_Id, party_Id, guests } = req.body
-    
-    // app.get('db').sendInvite([email_list, req.user.id, party_Id]).then(invites => {
-    //     console.log("this is the invites", invites)
-    // })
-    // ;
-    // for (var i = 0; i < guests.length; i++) {
-    //     app.get('db').addGuestToParty([guests[i], party_Id]).then(party => {
-    //         console.log("add guest to party fired")
-    //         console.log(party);
-
-    //     })
-        
-    // }
-    
-    // return res.redirect('http://localhost:3000/#/profile');
-
 })
-
-// app.get('db').sendInvite([listOfEmails, req.user.id, party[0].id]).then(invites => {
-//     res.status(200).send('added');
-// })
 
 let PORT = 3030;
 app.listen(PORT, () => {

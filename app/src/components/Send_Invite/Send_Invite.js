@@ -17,6 +17,7 @@ class Send_Invite extends Component {
 			user_Id: ''
 		}
 		this.addEmail = this.addEmail.bind(this)
+		this.deleteEmail = this.deleteEmail.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	}
 
@@ -33,6 +34,16 @@ class Send_Invite extends Component {
 		this.setState({
 			emails: [...this.state.emails, item],
 			newEmail: ''
+		})
+		console.log(this.state.emails)
+	}
+
+	deleteEmail(index) {
+		var emailList = this.state.emails
+		emailList.splice(index, 1)
+		this.setState({
+			emails:	emailList
+			
 		})
 		console.log(this.state.emails)
 	}
@@ -69,6 +80,7 @@ class Send_Invite extends Component {
 						<span>{e}</span>
 
 					</div>
+					<button onClick={() => this.deleteEmail(i)}>Delete</button>
 				</div>
 			)
 		})
@@ -87,14 +99,12 @@ class Send_Invite extends Component {
 						Party Date : {this.props.partyDate}
 					</div>
 
-					<textarea value={this.state.newEmail} onChange={(e) => this.handleChange(e.target.value)} />
+					<input value={this.state.newEmail} onChange={(e) => this.handleChange(e.target.value)} />
 
-						<button className="add-email" onClick={() => this.addEmail
-							(this.state.newEmail)}> Add Email</button>
+						<button className="add-email" onClick={() => this.addEmail(this.state.newEmail)}> Add Email</button>
 
 					<Link to="/profile">
-						<button className="submit-invite" onClick={() => this.sendPartyInvite
-							(this.state.emails)}> Send Invite </button>
+						<button className="submit-invite" onClick={() => this.sendPartyInvite(this.state.emails)}> Send Invite </button>
 					</Link>
 
 					<div>

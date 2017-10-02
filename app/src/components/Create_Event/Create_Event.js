@@ -57,12 +57,12 @@ class Create_Event extends Component {
                     <input placeholder="Address" type="text" onChange={ ( e ) => updatePartyAddress( e.target.value ) } />  
                 </div>
                 
-                <div className="descriptionAreaDiv">
+                <div className="suppliesAreaDiv">
                     Party Description:
                     <textarea placeholder="Description of Party" type="text" onChange={ ( e ) => updatePartyDescription( e.target.value ) } />  
                 </div>
                 
-                <div className="decorationsAreaDiv">
+                <div className="suppliesAreaDiv">
                     Decorations:
                     <textarea placeholder="Seperate By Comma" type="text" onChange={ ( e ) => updatePartyDecorations( e.target.value ) } /> 
                 </div>
@@ -72,7 +72,7 @@ class Create_Event extends Component {
                     <textarea placeholder="Seperate By Comma" type="text" onChange={ ( e ) => updatePartySupplies( e.target.value ) } /> 
                 </div>
                 
-                <div className="foodAreaDiv">
+                <div className="suppliesAreaDiv">
                     Food:
                     <textarea placeholder="Seperate By Comma" type="text" onChange={ ( e ) => updatePartyFood( e.target.value ) } /> 
                 </div>

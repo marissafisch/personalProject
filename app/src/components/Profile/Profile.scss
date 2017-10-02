@@ -4,17 +4,27 @@
     width: 100%;
     height: 100vh;
     background-size: cover;
-    position: relative;
-    // opacity: .5;
-    opacity: 1;    
+    position: relative;    
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    // align-items: flex-start;
+    flex-wrap: wrap;
+    font-family: $sans;
     
     a {
         text-decoration: none;
         color: black;
+        font: $sans;
     }
+
+}
+
+.profile-create-event {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: calc(80px + 80px + 60px)
 
 }
 
@@ -26,22 +36,57 @@
     display: flex;
     justify-content: center;
     font-size: 24px;
-    margin-top: 50px;
-    margin-left: 50%;
-    transform: translateX(-50%);
     &:hover {
         color: white;
         
     }
     
 }
-.view-upcoming-events{
-    display: flex;
-    font-size: 24px;
-    color: whitesmoke;
-    margin-top: 50px;
-    margin-left: 50%;
-    transform: translateX(-17%)
+.events-container-title {
+    height: 60px;
+    
+
+}
+
+.events-container-events {
+    position: relative;
+    top: -50px;
+    overflow: scroll;
+    height: 450px;
+    
+
+}
+
+.party-display-container {
     
 }
 
+.view-upcoming-events{
+    display: flex;
+    font-size: 24px;
+    color: black;
+    background-image: radial-gradient(circle at 50% -46%, #1d976c, #93f9b9);
+    width: 50vw;
+    text-align: center;
+
+    padding: 5px;
+
+    h1 {
+        width: calc(50vw - 20px);
+    }
+}
+
+.parties-container {
+    background-color: lightgrey;
+    width: 50vw;
+    border: 2px solid seagreen;
+    margin: 10px;
+    border-radius: 10px; 
+    font-size: 20px;
+    padding: 10px;
+    font-family: $sans;
+
+    .partyDate {
+        margin: 10px 0px;
+    }
+}

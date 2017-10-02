@@ -1,2 +1,3 @@
 SELECT *
-FROM party;
+FROM party
+ORDER BY party_date ASC;

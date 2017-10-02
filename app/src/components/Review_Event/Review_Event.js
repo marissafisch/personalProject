@@ -77,45 +77,45 @@ class Review_Event extends Component {
                     
                 <div className="partyNameDiv">
                     Party Name :
-                    <input defaultValue= {this.props.partyName} />
+                    <input disabled={true} defaultValue= {this.props.partyName} />
                 </div>
 
                 <div className="partyDateDiv">
                     Date :
-                    <input defaultValue= {this.props.partyDate} />
+                    <input disabled={true} defaultValue= {this.props.partyDate} />
                 </div>
                 
                 <div className="partyLocationDiv">
                     Location :
-                    <input defaultValue= {this.props.partyLocation} />
+                    <input disabled={true} defaultValue= {this.props.partyLocation} />
                 </div>
                 
                 <div className="partyAddressDiv">
                     Address :
-                    <input defaultValue= {this.props.partyAddress} />
+                    <input disabled={true} defaultValue= {this.props.partyAddress} />
                 </div>
                 
-                <div className="descriptionAreaDiv">
+                <div className="descriptionReviewDiv">
                     Party Description :
-                    <input defaultValue= {this.props.partyDescription} />
+                    <input disabled={true} defaultValue= {this.props.partyDescription} />
                 </div>
                 
-                <div className="decorationsAreaDiv">
+                <div className="decorationsReviewDiv">
                     Decorations :
-                    <input defaultValue= {this.props.partyDecorations} />
+                    <input disabled={true} defaultValue= {this.props.partyDecorations} />
                 </div>
                 
-                <div className="suppliesAreaDiv">
+                <div className="suppliesReviewDiv">
                     Supplies :
-                    <input defaultValue= {this.props.partySupplies} />
+                    <input disabled={true} defaultValue= {this.props.partySupplies} />
                 </div>
                 
-                <div className="foodAreaDiv">
+                <div className="foodReviewDiv">
                     Food :
-                <input defaultValue= {this.props.partyFood} />
+                <input disabled={true} defaultValue= {this.props.partyFood} />
                 </div>
                 </div>
-            <div>
+            <div className="review-buttons-container">
                 <button className="edit-party-button" onClick={() => {
                     this.setState({
                         edit: !this.state.edit

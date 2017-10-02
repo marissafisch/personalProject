@@ -13,7 +13,7 @@ export default class Home extends Component {
                     
 
                     <h2><span>
-                         Coordinate events and guests by utilizing our online sign-up tool.
+                         Coordinate events and guests by utilizing our online sign-up tool
                     </span></h2>
                 
                 </div>

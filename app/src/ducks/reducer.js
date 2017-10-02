@@ -16,7 +16,8 @@ const initialState = {
     password: '',
     loginStatus: false,
     partyId: '',
-    partyList: []
+    partyList: [],
+    partyTasks: []
 }
 
 const UPDATE_PARTY_NAME = 'UPDATE_PARTY_NAME';
@@ -67,7 +68,7 @@ function reducer(state = initialState, action) {
             console.log(action.payload)
             return Object.assign({}, state, { partyList: action.payload })
         case GET_ALL_TASKS + "_FULFILLED":
-            return Object.assign({}, state, { taskId: action.payload })
+            return Object.assign({}, state, { partyTask : action.payload })
         case GET_ALL_GUESTS + "_FULFILLED":
             return Object.assign({}, state, { userId: action.payload })
         case DELETE_PARTY_TASK:
@@ -201,11 +202,11 @@ export function getAllParties() {
     }
 }
 
-export function getAllTasks(taskId) {
+export function getAllTasks() {
     return {
         type: GET_ALL_TASKS,
-        payload: axios.get('/getAllTasks').then(response => {
-            return response
+        payload: axios.get(('http://localhost:3030/api/getAllTasks')).then(response => {
+            return response.data
         })
     }
 }

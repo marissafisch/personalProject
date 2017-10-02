@@ -8,7 +8,6 @@ background: -o-linear-gradient(bottom, #93F9B9, #1D976C);
 background: linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: black;
     width: 100%;
-    top: 0px;
     display: flex;
     
 
@@ -21,6 +20,11 @@ background: linear-gradient(to top, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 
     width: 100%;
     display: flex;
     justify-content: space-around;
+    position: fixed;
+    // z-index: 10;
+    top: 0;
+    left: 0;
+    font-family: $sans;
     
     a {
         text-decoration: none;
