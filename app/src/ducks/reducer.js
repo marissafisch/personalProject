@@ -196,7 +196,6 @@ export function getAllParties() {
     return {
         type: GET_ALL_PARTIES,
         payload: axios.get('http://localhost:3030/api/getAllParties').then(response => {
-            console.log(response)
             return response.data
         })
     }
@@ -223,8 +222,7 @@ export function getAllGuests(partyId) {
 export function acceptPartyInvite(partyInvite) {
     return {
         type: ACCEPT_PARTY_INVITE,
-        payload: axios.put('/acceptPartyInvite')
-        .then(response => {
+        payload: axios.put('/acceptPartyInvite').then(response => {
             return response
         })
     }

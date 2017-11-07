@@ -33,7 +33,7 @@ const checkLogin = (req, res, next) => {
 //DATABASE//
 massive(process.env.CONNECTIONSTRING).then(db => {
     app.set('db', db)
-    // app.get('db').init.seed()
+   
 
 })
 
@@ -95,11 +95,11 @@ app.get('/auth/me', (req, res) => {
 })
 
 //Logout//
-app.post('/api/auth/logout', (req, res) => {
-    req.logout() //PASSPORT GIVES US THIS TO TERMINATE A LOGIN SESSION
-    return res.redirect(302, 'http://localhost:3000/#/'); //res.redirect comes from express to redirect user to the given url
-    //302 is the status code for redirect
-});
+ //AUTH ENDPOINT (Logout)
+      app.get('/auth/logout', (req, res) => {
+        req.logout() //PASSPORT TO TERMINATE LOGIN SESSION
+        return res.redirect(302, 'http://localhost:3000/#/'); //res.redirect comes from express to redirect user to the given url
+      })
 
 //ENDPOINTS//
 

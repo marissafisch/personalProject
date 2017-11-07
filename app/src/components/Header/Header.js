@@ -48,7 +48,7 @@ class Header extends Component {
 							</ul>
 
 							<div className="nav-bar-right">
-								<a href='/api/auth/logout'><h4>Logout</h4></a>
+								<a href='http://localhost:3030/auth/logout'><h4>Logout</h4></a>
 							</div>
 						</nav>
 					
