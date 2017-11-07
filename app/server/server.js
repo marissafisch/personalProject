@@ -10,6 +10,8 @@ const express = require('express')
 
 const app = express();
 
+app.use( express.static( `${__dirname}/../build` ) );
+
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
@@ -33,6 +35,8 @@ const checkLogin = (req, res, next) => {
 //DATABASE//
 massive(process.env.CONNECTIONSTRING).then(db => {
     app.set('db', db)
+    db.seed()
+
    
 
 })
@@ -65,8 +69,8 @@ passport.use(new Auth0Strategy({
 app.get('/auth', checkLogin, passport.authenticate('auth0'));
 
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/profile',
-    failureRedirect: 'http://localhost:3000/#/'
+    successRedirect: '/#/profile',
+    failureRedirect: '/#/'
 }))
 
 //THIS IS INVOKED ONE TIME TO SET THINGS UP

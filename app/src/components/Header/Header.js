@@ -43,12 +43,12 @@ class Header extends Component {
 								</Link>
 								</li>
 								<li>
-								<a href= 'http://localhost:3030/auth'><h4>Profile</h4></a>
+								<a href= {process.env.REACT_APP_LOGIN}><h4>Profile</h4></a>
 								</li>
 							</ul>
 
 							<div className="nav-bar-right">
-								<a href='http://localhost:3030/auth/logout'><h4>Logout</h4></a>
+								<a href={process.env.REACT_APP_LOGOUT}><h4>Logout</h4></a>
 							</div>
 						</nav>
 					
