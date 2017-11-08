@@ -63,6 +63,8 @@ passport.use(new Auth0Strategy({
                         return done(null, user[0]);
                     })
             }
+        }).catch((err) =>  {
+            return done(err)
         })
 }));
 
