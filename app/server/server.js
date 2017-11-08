@@ -35,7 +35,7 @@ const checkLogin = (req, res, next) => {
 //DATABASE//
 massive(process.env.CONNECTIONSTRING).then(db => {
     app.set('db', db)
-    db.seed()
+    db.init.seed()
 
    
 
