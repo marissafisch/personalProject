@@ -12,8 +12,9 @@ CREATE TABLE IF NOT EXISTS party (
     party_location TEXT,
     party_address TEXT,
     party_description VARCHAR(1000),
-    host = INT,
+    host INT,
     email_list TEXT
+);
 
 CREATE TABLE IF NOT EXISTS tasks (
     id SERIAL PRIMARY KEY,
