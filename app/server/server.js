@@ -55,7 +55,7 @@ passport.use(new Auth0Strategy({
     db.find_user([profile.identities[0].user_id])
         .then(user => {
             if (user[0]) {
-                return done(null, user);
+                return done(null, user[0]);
 
             } else {
                 db.create_user([profile.displayName, profile.emails[0].value, profile.identities[0].user_id])
@@ -86,7 +86,7 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user, done) {
 
 
-    app.get('db').find_session_user([user[0].id])
+    app.get('db').find_session_user([user.id])
         .then(user => {
             return done(null, user[0]);
         })
