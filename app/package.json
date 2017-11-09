@@ -15,6 +15,7 @@
     "npm-run-all": "^4.1.1",
     "passport": "^0.4.0",
     "passport-auth0": "^0.6.0",
+    "path": "^0.12.7",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
@@ -33,10 +34,9 @@
     "eject": "react-scripts eject",
     "now-start": "node server/server.js",
     "deploy": "now --public --dotenv=.env.prod -d"
-
   },
-  "now":{
-    "alias":"party-up"
+  "now": {
+    "alias": "party-up"
   },
   "main": "server/server.js",
   "proxy": "http://localhost:3030"

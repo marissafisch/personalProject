@@ -144,7 +144,10 @@ app.post('/api/sendInvite', (req, res) => {
         res.status(200).send('email list added')
     })
 })
+app.get('*', (req, res) => {
+    res.sendFile( `${__dirname}/../build`)
 
+})
 let PORT = 3030;
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
