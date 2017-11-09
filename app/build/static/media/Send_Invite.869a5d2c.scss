@@ -1,0 +1,83 @@
+@import './../../styles/variables';
+
+.send-invite-container {
+    display: flex;
+    height: 100vh;
+    font-size: 25px;
+    align-items: center;
+    flex-direction: column;
+    font-family: $sans;
+
+    a {
+      text-decoration: none;
+    }
+    
+    
+
+    p {
+        margin-bottom: 30px;
+        font-size: 130%;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        padding-top: 50px;
+        
+    }
+      div {
+        padding: 5px;
+        
+      }
+
+      input { 
+      height: 5%;
+      width: 20%;
+      background: white;
+      margin-top: 1%;
+      display: flex;
+      justify-content: center;
+      
+      
+    }
+
+      button {
+      height: 30px;
+      width: 10vw;
+      border-radius: 5px;
+      font-size: 17px;
+      text-decoration: none;
+      display: flex;
+      margin-top: 10px;
+      margin-left: 140px;
+      justify-content: center;
+      background-image: radial-gradient(circle at 50% -46%, #1d976c, #93f9b9);
+      transform: translateX(-50%);
+      &:hover {
+        color: white;
+
+    }
+    
+  }
+
+
+
+  .email-display{
+    display: flex;
+    justify-content: center;
+    background-image: white;
+
+    .span {
+    
+    }
+
+    div{
+      color: black;
+      background-color: rgb(255, 255, 255)
+    }
+  }
+
+  .submit-invite {
+    text-decoration: none;
+  }
+
+}
+
+

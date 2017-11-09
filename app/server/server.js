@@ -10,7 +10,7 @@ const express = require('express')
 
 const app = express();
 
-app.use( express.static( `${__dirname}/../build` ) );
+app.use( express.static( __dirname + './../build') );
 
 app.use(session({
     secret: process.env.SECRET,
@@ -145,7 +145,7 @@ app.post('/api/sendInvite', (req, res) => {
     })
 })
 app.get('*', (req, res) => {
-    res.sendFile( `${__dirname}/../build`)
+    res.sendFile( __dirname + './../build')
 
 })
 let PORT = 3030;
