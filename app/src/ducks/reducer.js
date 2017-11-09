@@ -99,7 +99,7 @@ function reducer(state = initialState, action) {
 }
 
 export function getUser(){
-    var userInfo = axios.get('http://localhost:3030/auth/me').then(response => {
+    var userInfo = axios.get(`${process.env.BASE_URL}/auth/me`).then(response => {
         console.log(response)
         return response.data
         })
@@ -195,7 +195,7 @@ export function updatePartyGuests(partyGuests) {
 export function getAllParties() {
     return {
         type: GET_ALL_PARTIES,
-        payload: axios.get('http://localhost:3030/api/getAllParties').then(response => {
+        payload: axios.get(`${process.env.BASE_URL}/api/getAllParties`).then(response => {
             return response.data
         })
     }
@@ -204,7 +204,7 @@ export function getAllParties() {
 export function getAllTasks() {
     return {
         type: GET_ALL_TASKS,
-        payload: axios.get(('http://localhost:3030/api/getAllTasks')).then(response => {
+        payload: axios.get((`${process.env.BASE_URL}/api/getAllTasks`)).then(response => {
             return response.data
         })
     }

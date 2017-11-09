@@ -38,6 +38,5 @@
   "now": {
     "alias": "party-up"
   },
-  "main": "server/server.js",
-  "proxy": "http://localhost:3030"
+  "main": "server/server.js"
 }
