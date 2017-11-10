@@ -15,7 +15,6 @@ class Header extends Component {
 	}
 
 	render() {
-		console.log(process.env.REACT_APP_LOGIN)
 		const { updateLoginStatus, logout } = this.props;
 		return (
 			<div id="header">
@@ -49,7 +48,7 @@ class Header extends Component {
 							</ul>
 
 							<div className="nav-bar-right">
-								<a href="http://165.227.12.115:3030/auth/logout"><h4>Logout</h4></a>
+								<a href="/auth/logout"><h4>Logout</h4></a>
 							</div>
 						</nav>
 					
