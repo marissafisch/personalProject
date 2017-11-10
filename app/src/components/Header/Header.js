@@ -15,6 +15,7 @@ class Header extends Component {
 	}
 
 	render() {
+		console.log(process.env.REACT_APP_LOGIN)
 		const { updateLoginStatus, logout } = this.props;
 		return (
 			<div id="header">
