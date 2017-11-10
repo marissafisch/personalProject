@@ -113,8 +113,9 @@ app.get('/auth/me', (req, res) => {
 app.post('/api/createParty', (req, res) => {
     const { partyName, partyDate, partyLocation, partyAddress, partyDescription,
         partyDecorations, partySupplies, partyFood } = req.body
+        const user_id = req.body.user.user_id;
 
-    app.get('db').createParty([partyName, partyDate, partyLocation, partyAddress, partyDescription, req.user.id]).then(party => {
+    app.get('db').createParty([user_id, partyName, partyDate, partyLocation, partyAddress, partyDescription, req.user.id]).then(party => {
         req.session.party = party
     })
     app.get('db').createTask([partyDecorations, partySupplies, partyFood]).then(tasks => {
@@ -125,7 +126,8 @@ app.post('/api/createParty', (req, res) => {
 })
 //Get All Parties//
 app.get('/api/getAllParties', (req, res) => {
-    app.get('db').getAllParties().then(party => {
+    app.get('db').getAllParties(req.user.user_id)
+        .then(party => {
         res.status(200).send(party);
     })
 })

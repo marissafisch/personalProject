@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY,
+    user_id SERIAL PRIMARY KEY,
     user_name VARCHAR(180),
     email VARCHAR(180),
     auth_id TEXT
@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS party (
     id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users,
     party_name VARCHAR(180),
     party_date TEXT,
     party_location TEXT,
