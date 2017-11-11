@@ -192,10 +192,10 @@ export function updatePartyGuests(partyGuests) {
 }
 
 
-export function getAllParties(user_id) {
+export function getAllParties() {
     return {
         type: GET_ALL_PARTIES,
-        payload: axios.get(`${process.env.BASE_URL}/api/getAllParties/${user_id}`).then(response => {
+        payload: axios.get('/api/getAllParties/').then(response => {
             return response.data
         })
     }
@@ -204,7 +204,7 @@ export function getAllParties(user_id) {
 export function getAllTasks() {
     return {
         type: GET_ALL_TASKS,
-        payload: axios.get((`${process.env.BASE_URL}/api/getAllTasks`)).then(response => {
+        payload: axios.get(('/api/getAllTasks')).then(response => {
             return response.data
         })
     }

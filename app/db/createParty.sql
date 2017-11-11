@@ -1,10 +1,10 @@
 INSERT INTO party
-(user_id, party_name, party_date, party_location, party_address, party_description, host)
+(party_name, party_date, party_location, party_address, party_description, host)
 VALUES
-( $1, $2, $3, $4, $5, $6, $7)
+( $1, $2, $3, $4, $5, $6)
 RETURNING *;
 
 SELECT *
 FROM party
-WHERE user_id = $1
+WHERE host = $6
 ORDER BY party_date;
