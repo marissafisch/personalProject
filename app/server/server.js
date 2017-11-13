@@ -104,7 +104,7 @@ app.get('/auth/me', (req, res) => {
  //AUTH ENDPOINT (Logout)
       app.get('/auth/logout', (req, res) => {
         req.logout() //PASSPORT TO TERMINATE LOGIN SESSION
-        return res.redirect(302, `${process.env.BASE_URL}/#/`); //res.redirect comes from express to redirect user to the given url
+        return res.redirect(302, 'http://party-up.devmtn-projects.com:3030/#/'); //res.redirect comes from express to redirect user to the given url
       })
 
 //ENDPOINTS//
