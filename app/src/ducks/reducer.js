@@ -192,10 +192,10 @@ export function updatePartyGuests(partyGuests) {
 }
 
 
-export function getAllParties(user) {
+export function getAllParties() {
     return {
         type: GET_ALL_PARTIES,
-        payload: axios.get('/api/getAllParties/').then(response => {
+        payload: axios.get('/api/getAllParties?id=' + this.props.user.id).then(response => {
             return response.data
         })
     }
