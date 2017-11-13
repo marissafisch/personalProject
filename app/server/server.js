@@ -28,7 +28,7 @@ const checkLogin = (req, res, next) => {
     if (!req.isAuthenticated()) {
         next()
     } else {
-        res.redirect(`${process.env.BASE_URL}/#/profile`)
+        res.redirect('/#/profile')
     }
 }
 
@@ -104,7 +104,7 @@ app.get('/auth/me', (req, res) => {
  //AUTH ENDPOINT (Logout)
       app.get('/auth/logout', (req, res) => {
         req.logout() //PASSPORT TO TERMINATE LOGIN SESSION
-        return res.redirect(302, `${process.env.BASE_URL}/#/`); //res.redirect comes from express to redirect user to the given url
+        return res.redirect(302, '/#/'); //res.redirect comes from express to redirect user to the given url
       })
 
 //ENDPOINTS//
@@ -118,7 +118,7 @@ app.get('db').createParty([partyName, partyDate, partyLocation, partyAddress, pa
         req.session.party = party
     })
     app.get('db').createTask([partyDecorations, partySupplies, partyFood]).then(tasks => {
-        return res.redirect(`${process.env.BASE_URL}/#/review_event`);
+        return res.redirect('/#/review_event');
 
     })
 
