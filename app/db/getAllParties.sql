@@ -1,4 +1,4 @@
 SELECT *
 FROM party
-WHERE host = 3
+WHERE host = $1
 ORDER BY party_date ASC;
