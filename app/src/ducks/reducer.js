@@ -100,7 +100,7 @@ function reducer(state = initialState, action) {
 }
 
 export function getUser(){
-    var userInfo = axios.get('http://165.227.12.115:3030/auth/me').then(response => {
+    var userInfo = axios.get('http://party-up.devmtn-projects.com:3030/#/auth/me').then(response => {
         console.log(response)
         return response.data
         })
