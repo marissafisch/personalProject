@@ -71,8 +71,8 @@ passport.use(new Auth0Strategy({
 app.get('/auth', checkLogin, passport.authenticate('auth0'));
 
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: '/#/profile',
-    failureRedirect: '/#/'
+    successRedirect: 'http://party-up.devmtn-projects.com:3030/#/profile',
+    failureRedirect: 'http://party-up.devmtn-projects.com:3030/#/'
 }))
 
 //THIS IS INVOKED ONE TIME TO SET THINGS UP
