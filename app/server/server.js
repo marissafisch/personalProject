@@ -71,8 +71,8 @@ passport.use(new Auth0Strategy({
 app.get('/auth', checkLogin, passport.authenticate('auth0'));
 
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://party-up.devmtn-projects.com:3030/#/profile',
-    failureRedirect: 'http://party-up.devmtn-projects.com:3030/#/'
+    successRedirect: '/#/profile',
+    failureRedirect: '/#/'
 }))
 
 //THIS IS INVOKED ONE TIME TO SET THINGS UP
@@ -93,7 +93,6 @@ passport.deserializeUser(function (user, done) {
 });
 
 app.get('/auth/me', (req, res) => {
-    console.log('checking')
     if (!req.user) {
         return res.status(404).send('User not found')
     } else {
@@ -105,7 +104,7 @@ app.get('/auth/me', (req, res) => {
  //AUTH ENDPOINT (Logout)
       app.get('/auth/logout', (req, res) => {
         req.logout() //PASSPORT TO TERMINATE LOGIN SESSION
-        return res.redirect(302, 'http://party-up.devmtn-projects.com:3030/#/'); //res.redirect comes from express to redirect user to the given url
+        return res.redirect(302, `${process.env.BASE_URL}/#/`); //res.redirect comes from express to redirect user to the given url
       })
 
 //ENDPOINTS//

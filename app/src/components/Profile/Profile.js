@@ -10,7 +10,7 @@ class Profile extends Component {
 
     componentDidMount(){
         this.props.getUser()
-        this.props.getAllParties(this.props.user.id)
+        this.props.getAllParties()
         this.props.getAllTasks()
     }
 

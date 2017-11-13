@@ -22,7 +22,7 @@ class Send_Invite extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('http://party-up.devmtn-projects.com:3030/#/auth/me').then((response) => {
+		axios.get(`${process.env.BASE_URL}/auth/me`).then((response) => {
 			console.log(response)
 ;			this.setState({
 				user_Id: response.data.id
